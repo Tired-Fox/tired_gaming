@@ -1,0 +1,50 @@
+---
+import Search from '../components/search/Search.tsx';
+
+export interface Props {
+  section: string
+}
+
+const { section } = Astro.props;
+---
+
+<div id="header">
+  <h3 id="title">Tired Gaming<span data-section={section} id="sub-section">{section}</span></h3>
+  <Search section={section} client:visible />
+</div>
+
+<style>
+#sub-section {
+  text-transform: uppercase;
+  color: black;
+
+  font-size: .7rem;
+  font-weight: 800;
+  margin-left: .25rem;
+}
+
+#sub-section[data-section=assets] {
+  background: radial-gradient(circle, rgba(251,204,63,1) 0%, rgba(252,70,107,1) 100%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#sub-section[data-section=games] {
+  background:linear-gradient(29deg, rgba(2,0,36,1) 0%, rgba(97,97,242,1) 40%, rgba(0,255,209,1) 100%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-inline: 1rem;
+}
+
+h3 {
+	font-size: 1.75rem;
+	font-weight: 800;
+	margin: 0;
+}
+</style>

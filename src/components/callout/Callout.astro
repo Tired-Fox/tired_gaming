@@ -1,0 +1,88 @@
+---
+import CalloutIcon from './CalloutIcon.tsx';
+import { Icon } from './CalloutIcon.tsx';
+
+export interface Props {
+  title?: string,
+  type?: Icon
+}
+
+const { title=null, type="note" } = Astro.props;
+---
+
+<div class="callout" data-type={type}>
+  <div class="callout-label">
+    {/* <CalloutIcon icon={icon} client:only /> */}
+    <span>{(title ?? type).toUpperCase()}</span>
+  </div>
+  <div class="callout-content">
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+
+.callout {
+  --color: black;
+  --accent: rgba(0, 0, 0, .25);
+}
+
+.callout[data-type=info] {
+  --color: rgb(64, 140, 255);
+  --accent: rgba(64, 140, 255, .25);
+}
+
+/* .callout[data-type=warn] { */
+/*   --color: rgb(250, 179, 47); */
+/*   --accent: rgba(250, 179, 47, .25); */
+/* } */
+
+.callout[data-type=warn] {
+  --color: rgb(250, 88, 47);
+  --accent: rgba(250, 88, 47, .25);
+}
+
+.callout[data-type=note] {
+  --color: rgb(151, 87, 255);
+  --accent: rgba(151, 87, 255, .3); 
+}
+
+.callout-label {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: .25rem;
+
+  background-color: var(--accent);
+  color: var(--color);
+
+  padding: .3rem;
+  border-radius: .3rem;
+  margin-bottom: .25rem;
+}
+
+.callout-content {
+  padding-inline: 1.5rem;
+}
+
+.callout-label span {
+  /* writing-mode: sideways-lr;  */
+  /* writing-mode: vertical-lr; /* TODO: Change to sideways-lr when support catches up */ */
+  /* text-orientation: mixed; */
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.callout {
+  width: fit-content;
+  border-radius: .5rem;
+}
+
+.callout code {
+  background-color: var(--accent);
+  color: var(--color);
+  padding: .25em;
+  border-radius: .25em;
+  font-size: .8em
+}
+</style>
