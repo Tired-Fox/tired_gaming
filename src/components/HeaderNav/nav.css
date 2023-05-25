@@ -15,22 +15,22 @@
   border-color: transparent;
 }
 
-.sub-section[data-section="assets"] {
-  background: var(--assets);
+.sub-section[data-section="asset"] {
+  background: var(--asset);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.sub-section[data-section="games"] {
-  background: var(--games);
+.sub-section[data-section="game"] {
+  background: var(--game);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.sub-section[data-section="home"] {
-  background: var(--home);
+.sub-section[data-section="jam"] {
+  background: var(--jam);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -43,18 +43,18 @@
   -webkit-text-fill-color: transparent;
 }
 
-.sub-section[data-section="games"]:is(:active, :hover, :focus) {
+.sub-section[data-section="game"]:is(:active, :hover, :focus) {
   outline: none;
-  border-image: var(--games) 1;
+  border-image: var(--game) 1;
 }
 
-.sub-section[data-section="assets"]:is(:active, :hover, :focus) {
+.sub-section[data-section="asset"]:is(:active, :hover, :focus) {
   outline: none;
-  border-image: var(--assets) 1;
+  border-image: var(--asset) 1;
 }
-.sub-section[data-section="home"]:is(:active, :hover, :focus) {
+.sub-section[data-section="jam"]:is(:active, :hover, :focus) {
   outline: none;
-  border-image: var(--home) 1;
+  border-image: var(--jam) 1;
 }
 .sub-section[data-section="mixed"]:is(:active, :hover, :focus) {
   outline: none;
@@ -65,18 +65,18 @@
   display: inline-flex;
   align-items: end;
   position: relative;
-  --games: linear-gradient(
+  --game: linear-gradient(
     29deg,
     rgba(2, 0, 36, 1) 0%,
     rgba(97, 97, 242, 1) 40%,
     rgba(0, 255, 209, 1) 100%
   );
-  --assets: radial-gradient(
+  --asset: radial-gradient(
     circle,
     rgba(251, 204, 63, 1) 0%,
     rgba(252, 70, 107, 1) 100%
   );
-  --home: linear-gradient(
+  --jam: linear-gradient(
     139deg,
     rgba(41, 41, 42, 1) 0%,
     rgba(9, 121, 73, 1) 55%,

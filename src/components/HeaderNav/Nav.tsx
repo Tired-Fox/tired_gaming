@@ -24,7 +24,7 @@ function Nav(props: { section: string }) {
         ref={currentSection}
         onClick={() => setShow(!show())}
         onKeyDown={(e) => {
-          if (e.key === "Enter") setShow(!show());
+          if (['Enter', ' '].includes(e.key)) setShow(!show());
         }}
         data-section={props.section}
         onBlur={blurNav}
@@ -33,39 +33,39 @@ function Nav(props: { section: string }) {
       </span>
       {show() && (
         <nav>
-          {props.section !== "home" && (
+          {props.section !== "jam" && (
             <a
-              href="/"
-              data-section="home"
+              href="/jam"
+              data-section="jam"
               class="sub-section"
               onBlur={blurNav}
             >
-              Home
+              Jam
             </a>
           )}
-          {props.section !== "games" && (
+          {props.section !== "game" && (
             <a
-              href="/games"
-              data-section="games"
+              href="/jam/game"
+              data-section="game"
               class="sub-section"
               onBlur={blurNav}
             >
-              Games
+              Game
             </a>
           )}
-          {props.section !== "assets" && (
+          {props.section !== "asset" && (
             <a
-              href="/assets"
-              data-section="assets"
+              href="/jam/asset"
+              data-section="asset"
               class="sub-section"
               onBlur={blurNav}
             >
-              Assets
+              Asset
             </a>
           )}
           {props.section !== "mixed" && (
             <a
-              href="/mixed"
+              href="/jam/mixed"
               data-section="mixed"
               class="sub-section"
               onBlur={blurNav}

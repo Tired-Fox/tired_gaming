@@ -17,9 +17,6 @@ function Search(props: { section: string }) {
   const focusSearch = () => {
     startSearch();
     setFocus(true);
-    keybind.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-  </svg>`;
     searchInput.focus();
     searchInput.value = "";
     searchInput.placeholder = "";
@@ -28,7 +25,7 @@ function Search(props: { section: string }) {
   const unfocusSearch = () => {
     setFocus(false);
     searchInput.blur();
-    keybind.innerText = '/';
+    keybind.innerText = "/";
     searchInput.value = "";
     searchInput.placeholder = "search";
   };
@@ -55,10 +52,9 @@ function Search(props: { section: string }) {
     <>
       <div
         id="search"
+        role="search"
         ref={search}
         class={focus() ? "full-width" : "normal-width"}
-        role="button"
-        aria-label="Search"
         onBlur={blurSearch}
       >
         <div id="bar">
@@ -66,13 +62,37 @@ function Search(props: { section: string }) {
             type="text"
             ref={searchInput}
             placeholder="search"
+            aria-label="Search"
             onFocusIn={focusSearch}
             onBlur={blurSearch}
-            onKeyPress={(event) => {if (event.key === "Enter") unfocusSearch()}}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") unfocusSearch();
+            }}
           />
-          <button onClick={() => focus() ? unfocusSearch() : focusSearch()}>
-            <kbd ref={keybind} id="search-keys">/</kbd>
-          </button>  
+          <button
+            id="search-icon"
+            type="button"
+            classList={{ rotate: focus() }}
+            onClick={() => (focus() ? unfocusSearch() : focusSearch())}
+            aria-label="Submit"
+          >
+            {!focus() && <kbd ref={keybind}>/</kbd>}
+            {focus() && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
     </>

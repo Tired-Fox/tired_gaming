@@ -1,0 +1,32 @@
+---
+import Page from "../../layouts/Page.astro";
+import Callout from "../../components/callout/Callout.astro";
+import { Image } from "@astrojs/image/components";
+---
+
+<Page title="Jams" section="jam">
+  <main>
+    <div class="flex justify-center">
+      <Image
+        src="https://picsum.photos/1920/1080"
+        width={500}
+        height={300}
+        format="webp"
+        alt=""
+      />
+    </div>
+  </main>
+</Page>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+
+  img {
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+</style>
