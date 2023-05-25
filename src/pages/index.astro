@@ -1,13 +1,17 @@
 ---
 import Page from '../layouts/Page.astro';
 import Callout from '../components/callout/Callout.astro';
+import { Image } from '@astrojs/image/components';
 ---
 
-<Page title="Tired Gaming">
+<Page title="Tired Gaming" section="home">
 	<main>
     <Callout type="warn">
       <p>This website is a work in progress. Check be soon to see the <code>progress!</code></p>
     </Callout>
+    <div class="flex justify-center">
+        <Image src="https://picsum.photos/1920/1080" width={300} height={200} format="webp" alt="" />
+    </div>
 	</main>
 </Page>
 

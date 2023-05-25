@@ -1,21 +1,59 @@
 #search-icon {
   color: black;
-  width: .9rem;
+  width: 0.9rem;
+  aspect-ratio: 1/1;
+
+  position: absolute;
+  left: 0.5rem;
   aspect-ratio: 1/1;
 }
 
-#search {
+#bar {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
-  height: fit-content;
   align-items: center;
+  justify-content: space-between;
+}
+
+#bar button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: 0.5rem;
+}
+
+#bar button:hover {
+    border: none;
+    outline: none;
+}
+
+.normal-width {
+  width: 7rem;
+}
+
+.full-width {
+  width: 12rem;
+}
+
+#search {
+  transition: width 0.25s;
+
+  position: relative;
+
+  height: fit-content;
+
+  box-sizing: border-box;
   cursor: text;
 
-  position: absolute;
+  /* position: absolute;
   top: 10px;
-  right: 15px;
-
-  padding: 0.5rem 1rem;
-  box-sizing: border-box;
+  right: 15px; */
 
   background-color: white;
   border: 2px solid #333;
@@ -29,21 +67,31 @@ kbd {
   color: black;
   font-weight: bold;
 
-  height: 65%;
+  height: fit-content;
   width: fit-content;
 
-  border-radius: 0.35rem;
+  border-radius: 0.8rem;
 
   border: 1px solid black;
 
   font-size: 0.75em;
   line-height: 1;
   min-width: 0.75rem;
-  padding: 2px 5px;
+  padding: 3px;
 }
 
-#placeholder {
-  font-size: .75rem;
-  margin-right: 1.25rem;
-  margin-left: .5rem;
+input {
+  appearance: none;
+
+  width: 100%;
+  height: 100%;
+  padding-block: 0.3rem;
+  padding-inline: 1rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
 }
