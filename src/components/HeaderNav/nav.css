@@ -95,6 +95,16 @@
     height: fit-content;
 }
 
+#header-nav>div span:nth-child(2) {
+    color: rgba(140, 139, 139, 0.6);
+}
+#header-nav>div {
+    display: flex;
+    gap: .1rem;
+    font-size: .7rem;
+    cursor: pointer;
+}
+
 #header-nav nav {
   display: flex;
   gap: 0.2rem;

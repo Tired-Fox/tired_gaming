@@ -16,21 +16,25 @@ function Nav(props: { section: string }) {
 
   return (
     <div id="header-nav" ref={nav}>
-      <span
-        id="nav-button"
-        role="button"
-        class="sub-section"
+      <div
         tabindex="0"
         ref={currentSection}
         onClick={() => setShow(!show())}
         onKeyDown={(e) => {
-          if (['Enter', ' '].includes(e.key)) setShow(!show());
+          if (["Enter", " "].includes(e.key)) setShow(!show());
         }}
-        data-section={props.section}
         onBlur={blurNav}
       >
-        {props.section}
-      </span>
+        <span
+          id="nav-button"
+          role="button"
+          class="sub-section"
+          data-section={props.section}
+        >
+          {props.section}
+        </span>
+        <span>⯆</span>
+      </div>
       {show() && (
         <nav>
           {props.section !== "jam" && (

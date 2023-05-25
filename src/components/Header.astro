@@ -3,20 +3,27 @@ import Search from "../components/search/Search.tsx";
 import Nav from "../components/HeaderNav/Nav.tsx";
 
 export interface Props {
-  section: string;
+  section?: string;
 }
 
-const { section } = Astro.props;
+const { section='' } = Astro.props;
 ---
 
 <div id="header">
   <div id="header-nav" class="flex items-center">
     <h3 id="title">
-      Tired Gaming
-      <Nav section={section} client:only />
+      <a href="/">Tired Gaming</a>
+      { section && <Nav section={section} client:only /> }
     </h3>
+    
   </div>
-  <Search section={section} client:only />
+  <div id="right">
+    <nav id="home">
+        { !section && <a href="/jam">Jam</a>}
+        <a href="/blog">Blog</a>
+    </nav>
+    <Search section={section} client:only />
+  </div>
 </div>
 
 <style>
@@ -31,8 +38,27 @@ const { section } = Astro.props;
     margin-bottom: 3rem;
     padding-block: .5rem;
 
-    border-bottom: 2px solid rgba(0, 0, 0, .25);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .09);
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  }
+  #right {
+    display: flex;
+    gap: 2rem;
+  }
+  #home {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  #home a:hover {
+    text-decoration: underline;
+  }
+
+  #header-nav {
+    display: flex;
+    gap: 1rem;
   }
 
   h3 {
@@ -40,6 +66,11 @@ const { section } = Astro.props;
     font-weight: 800;
     margin: 0;
     white-space: nowrap;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 
   #title {
