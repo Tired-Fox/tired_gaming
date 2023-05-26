@@ -7,6 +7,7 @@ function Search(props: { section: string }) {
   let searchInput: any;
   let search: any;
   let keybind: any;
+  let currentSearch: string = '';
 
   const startSearch = () => {
     if (!focus()) {
@@ -18,7 +19,7 @@ function Search(props: { section: string }) {
     startSearch();
     setFocus(true);
     searchInput.focus();
-    searchInput.value = "";
+    searchInput.value = currentSearch;
     searchInput.placeholder = "";
   };
 
@@ -26,6 +27,7 @@ function Search(props: { section: string }) {
     setFocus(false);
     searchInput.blur();
     keybind.innerText = "/";
+    currentSearch = searchInput.value;
     searchInput.value = "";
     searchInput.placeholder = "search";
   };
@@ -75,6 +77,7 @@ function Search(props: { section: string }) {
             classList={{ rotate: focus() }}
             onClick={() => (focus() ? unfocusSearch() : focusSearch())}
             aria-label="Submit"
+            onBlur={blurSearch}
           >
             {!focus() && <kbd ref={keybind}>/</kbd>}
             {focus() && (

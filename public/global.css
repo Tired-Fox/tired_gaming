@@ -1,0 +1,84 @@
+:root {
+  --background: 245, 249, 246;
+  --text: 18, 18, 18;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: .5em;
+  height: .5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(var(--background), .1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  background-color: rgb(var(--background));
+  color: rgb(var(--text));
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+main {
+  margin: auto;
+  padding: 1.5rem;
+  max-width: 75ch;
+}
+p {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: start;
+}
+.items-end {
+  align-items: end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-start {
+  justify-content: start;
+}
+.justify-end {
+  justify-content: end;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.m-auto {
+    margin: auto;
+}

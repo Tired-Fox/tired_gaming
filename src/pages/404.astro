@@ -1,0 +1,133 @@
+---
+---
+<script>
+    document.getElementById('back')?.addEventListener('click', () => {
+        history.back();
+    });
+    document.getElementById('home')?.addEventListener('click', () => {
+        window.location.href = '/';
+    });
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="A host of game and asset jams" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/global.css">
+    <meta name="generator" content={Astro.generator} />
+    <title>404 Not Found</title>
+  </head>
+  <body>
+    <main>
+      <!-- <Image src="/images/pixel_stars.jpg" alt="" width={612} aspectRatio={3/2} format="avif" /> -->
+      <h1 id="error">404</h1>
+      <div>
+        <h2>Game Over</h2>
+        <p>
+            This page does not exist
+            <!-- : <strong>Respawning in <Redirect in={8} client:only /></strong> -->
+        </p>
+        <nav>
+            <span>Try Again?</span>
+            <button role="link" class="selection" aria-label="Back to previous page" id="back" tabindex="0">
+                <span>🡆</span>
+                Yes
+            </button>
+            <button role="link" class="selection" aria-label="Back to home page" id="home" tabindex="0">
+                <span>🡆</span>
+                No
+            </button>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #e3e3e3;
+    color: black;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh;
+    justify-content: center;
+    align-items: center;
+  }
+  main>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+  }
+
+  main>div h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  main>div p {
+    text-align: center;
+    margin-top: 0;
+    font-size: .9rem;
+    opacity: .7;
+  }
+
+  #error {
+    font-size: 60dvh;
+    color: rgba(230, 30, 10, .05);
+  }
+
+  image {
+    width: 100dvw;
+    aspect-ratio: 1/1;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  nav :is(a,button, p) {
+    font-size: 1.2rem;  
+    text-decoration: none;
+    transition: font-size .5s;
+    cursor: pointer;
+    
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: fit-content;
+    padding: 0;
+  }
+
+  .selection {
+    cursor: pointer;
+  }
+
+  .selection span {
+    color: transparent;
+    transition: color .2s;
+  }
+
+  .selection:is(:hover, :active, :focus) span {
+    color: #f32;
+  }
+</style>

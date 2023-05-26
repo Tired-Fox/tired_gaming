@@ -1,7 +1,7 @@
 .sub-section {
-  --gradient: black;
+  --gradient: rgb(var(--text));
   text-transform: uppercase;
-  color: black !important;
+  color: rgb(var(--text)) !important;
   cursor: pointer;
 
   font-size: 0.75rem;
@@ -65,6 +65,7 @@
   display: inline-flex;
   align-items: end;
   position: relative;
+  z-index: 100;
   --game: linear-gradient(
     29deg,
     rgba(2, 0, 36, 1) 0%,
@@ -116,7 +117,7 @@
   border: 2px solid black;
   border-radius: 0.4rem;
   padding: 0.5rem;
-  background-color: white;
+  background-color: rgb(var(--background));
 }
 
 #header-nav nav a {

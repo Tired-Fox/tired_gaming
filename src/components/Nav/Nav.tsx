@@ -21,7 +21,7 @@ function Nav(props: { section: string }) {
         ref={currentSection}
         onClick={() => setShow(!show())}
         onKeyDown={(e) => {
-          if (["Enter", " "].includes(e.key)) setShow(!show());
+          if (["Enter"].includes(e.key)) setShow(!show());
         }}
         onBlur={blurNav}
       >

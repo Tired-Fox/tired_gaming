@@ -1,22 +1,21 @@
 ---
 import Page from '../../../layouts/Page.astro';
-import Callout from '../../../components/callout/Callout.astro';
+import Callout from '../../../components/callout/Callout.tsx';
+import {Image} from '@astrojs/image/components';
 ---
 
 <Page title="Jam | Mixed" jam="mixed">
 	<main>
     <div class="flex justify-center">
       <Callout type="note">
-			  To get started, open the directory <code>src/pages</code> in your project.<br />
+		This is a test callout. Callouts are a way of brining additional information
+        to a page that isn't required for the experience. Callouts include <code>Code blocks</code>,
+        key combinations like <kbd>ctrl</kbd> + <kbd>h</kbd>, and images like the one below.
+        <figure>
+            <Image src="/images/pixel_stars.jpg" alt="" width={300} height={200} format="avif" />
+            <figcaption>1. Pixel Stars</figcaption>
+        </figure>
       </Callout>
     </div>
 	</main>
 </Page>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-</style>
