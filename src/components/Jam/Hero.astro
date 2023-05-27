@@ -1,0 +1,81 @@
+---
+import { Show } from "solid-js";
+import { Jam, formatDate, formatDateTimeAttr, getTag } from "../../ts/jam";
+import Callout from "../callout/Callout";
+
+export interface Props {
+  jam: Jam;
+}
+
+const { jam } = Astro.props;
+const tag = getTag(jam.from, jam.to);
+---
+
+<section id="next-jam">
+  <Show when={jam}>
+    <div>
+      <figure>
+        <img src="/images/flame-space-adventures.gif" alt="Next Jam GIF" />
+        <figcaption>
+          Illustration by <a
+            href="https://icons8.com/illustrations/author/oZpGJx8ts63Q"
+            >Thierry Fousse</a
+          > from <a href="https://icons8.com/illustrations">Ouch!</a>
+        </figcaption>
+      </figure>
+      <div class="jam-head">
+        <h3 data-tag={tag}>
+          {jam.title}
+        </h3>
+        <div class="jam-date">
+          <time datetime={formatDateTimeAttr(jam.from)}>
+            <strong>From</strong>
+            {formatDate(jam.from)}
+          </time>
+
+          <time datetime={formatDateTimeAttr(jam.to)}>
+            <strong>To</strong>
+            {formatDate(jam.to)}
+          </time>
+        </div>
+      </div>
+      <div id="next-jam-theme" data-tag={tag}>
+        <strong>Theme:</strong>
+        <span>{jam.theme}</span>
+      </div>
+      <p class="jam-description">
+        {jam.description}
+      </p>
+
+      <div class="jam-requirements">
+        {
+          jam.requirements.map((requirement, i) => (
+            <div>
+              <h5>#{i + 1}</h5>
+              <span>{requirement}</span>
+            </div>
+          ))
+        }
+      </div>
+      <div class="flex justify-center">
+        <button
+          id="next-jam-page"
+          data-tag={tag}
+          data-uri={jam.uri}
+          role="link"
+          onclick="">Jam Page</button
+        >
+      </div>
+    </div>
+  </Show>
+  {
+    !jam && (
+      <div class="flex justify-center align-center m-auto">
+        <Callout type="warning">
+          There are no active game jams right now. Use <kbd>/</kbd>
+          to search for previous jams or jams in other categories.
+        </Callout>
+      </div>
+    )
+  }
+</section>

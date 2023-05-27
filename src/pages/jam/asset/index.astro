@@ -1,15 +1,28 @@
 ---
-import Page from '../../../layouts/Page.astro';
-import Callout from '../../../components/callout/Callout.astro';
+import {
+  Jam as GameJame,
+  getJam,
+} from "../../../ts/jam.ts";
+
+import Jam from "../../../layouts/Jam.astro";
+
+import JamHero from "../../../components/Jam/Hero.astro";
+
+const cj: GameJame | null = getJam("closed");
 ---
 
-<Page title="Jams | Asset" jam="asset">
-	<main>
-    <div class="flex justify-center">
-      <Callout type="warn">
-		If you go to a page that doesn't exist, you can get back to the previous page by
-        clicking <code>continue</code> and back to the home page with <code>exit</code>.
-      </Callout>
-    </div>
-	</main>
-</Page>
+<script>
+  document
+    .getElementById("next-jam-page")
+    ?.addEventListener("click", (event) => {
+      window.location.href = event.target
+        ? event.target.getAttribute("data-uri")
+        : "/";
+    });
+</script>
+
+<Jam title="Jam | Asset" jam="asset">
+  <main>
+    <JamHero jam={cj} />
+  </main>
+</Jam>

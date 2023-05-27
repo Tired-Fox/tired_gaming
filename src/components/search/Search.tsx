@@ -39,11 +39,11 @@ function Search(props: { section: string }) {
   };
 
   createEffect(() => {
-    addEventListener("keypress", (event) => {
+    addEventListener("keydown", (event) => {
       if (event.key === "/" && !focus()) {
         event.preventDefault();
         focusSearch();
-      } else if (event.key === "Enter") {
+      } else if (focus() && ['Escape', 'Enter'].includes(event.key)) {
         event.preventDefault();
         unfocusSearch();
       }

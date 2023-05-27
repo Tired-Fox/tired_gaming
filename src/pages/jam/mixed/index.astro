@@ -1,21 +1,46 @@
 ---
-import Page from '../../../layouts/Page.astro';
-import Callout from '../../../components/callout/Callout.tsx';
-import {Image} from '@astrojs/image/components';
+import { Jam as GameJame, getJam } from "../../../ts/jam.ts";
+
+import Jam from "../../../layouts/Jam.astro";
+
+import Callout from "../../../components/callout/Callout.tsx";
+import { Image } from "@astrojs/image/components";
+import JamHero from "../../../components/Jam/Hero.astro";
+
+const cj: GameJame | null = getJam("upcoming");
 ---
 
-<Page title="Jam | Mixed" jam="mixed">
-	<main>
-    <div class="flex justify-center">
-      <Callout type="note">
-		This is a test callout. Callouts are a way of brining additional information
-        to a page that isn't required for the experience. Callouts include <code>Code blocks</code>,
-        key combinations like <kbd>ctrl</kbd> + <kbd>h</kbd>, and images like the one below.
-        <figure>
-            <Image src="/images/pixel_stars.jpg" alt="" width={300} height={200} format="avif" />
-            <figcaption>1. Pixel Stars</figcaption>
-        </figure>
-      </Callout>
-    </div>
-	</main>
-</Page>
+<script>
+  document
+    .getElementById("next-jam-page")
+    ?.addEventListener("click", (event) => {
+      window.location.href = event.target
+        ? event.target.getAttribute("data-uri")
+        : "/";
+    });
+</script>
+
+<Jam title="Jam | Mixed" jam="mixed">
+  <main>
+    <JamHero jam={cj} />
+    <br/>
+    <br/>
+    <br/>
+    <Callout type="note">
+      This is a test callout. Callouts are a way of brining additional
+      information to a page that isn't required for the experience. Callouts
+      include <code>Code blocks</code>, key combinations like <kbd>ctrl</kbd> +
+      <kbd>h</kbd>, and images like the one below.
+      <figure>
+        <Image
+          src="/images/pixel_stars.jpg"
+          alt=""
+          width={300}
+          height={200}
+          format="avif"
+        />
+        <figcaption>1. Pixel Stars</figcaption>
+      </figure>
+    </Callout>
+  </main>
+</Jam>
