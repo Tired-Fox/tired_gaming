@@ -25,7 +25,7 @@ export function getJam(state: JamState): Jam {
                   "Teams of 1-4 are allowed",
                   "Playable through submission source"
                 ],
-                uri: "/",
+                uri: "/tired_gaming/",
             };
         case 'closed':
             return {
@@ -42,7 +42,7 @@ export function getJam(state: JamState): Jam {
                   "Must contain at least one tree",
                   "Playable through submission source"
                 ],
-                uri: "/",
+                uri: "/tired_gaming/",
             };
         case 'active':
             return {
@@ -57,7 +57,7 @@ export function getJam(state: JamState): Jam {
                   "Teams of 1-6 are allowed",
                   "Playable through submission source"
                 ],
-                uri: "/",
+                uri: "/tired_gaming/",
             };
     }
 }
