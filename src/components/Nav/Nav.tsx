@@ -39,7 +39,7 @@ function Nav(props: { section: string }) {
         <nav>
           {props.section !== "jam" && (
             <a
-              href="/jam"
+              href="/tired_gaming/jam"
               data-section="jam"
               class="sub-section"
               onBlur={blurNav}
@@ -49,7 +49,7 @@ function Nav(props: { section: string }) {
           )}
           {props.section !== "game" && (
             <a
-              href="/jam/game"
+              href="/tired_gaming/jam/game"
               data-section="game"
               class="sub-section"
               onBlur={blurNav}
@@ -59,7 +59,7 @@ function Nav(props: { section: string }) {
           )}
           {props.section !== "asset" && (
             <a
-              href="/jam/asset"
+              href="/tired_gaming/jam/asset"
               data-section="asset"
               class="sub-section"
               onBlur={blurNav}
@@ -69,7 +69,7 @@ function Nav(props: { section: string }) {
           )}
           {props.section !== "mixed" && (
             <a
-              href="/jam/mixed"
+              href="/tired_gaming/jam/mixed"
               data-section="mixed"
               class="sub-section"
               onBlur={blurNav}

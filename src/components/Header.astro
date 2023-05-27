@@ -12,15 +12,15 @@ const { section='' } = Astro.props;
 <div id="header">
   <div id="header-nav" class="flex items-center">
     <h3 id="title">
-      <a href="/">Tired Gaming</a>
+      <a href="/tired_gaming/">Tired Gaming</a>
       { section && <Nav section={section} client:only /> }
     </h3>
     
   </div>
   <div id="right">
     <nav id="home">
-        { !section && <a href="/jam">Jam</a>}
-        <a href="/blog">Blog</a>
+        { !section && <a href="/tired_gaming/jam">Jam</a>}
+        <a href="/tired_gaming/blog">Blog</a>
     </nav>
     <Search section={section} client:only />
   </div>
